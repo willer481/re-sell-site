@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add New Item</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css"> </head>
+<body>
+    <header>
+        <h1>🔧 Admin Dashboard</h1>
+        <nav>
+            <a href="index.html">View Shop</a> |
+            <a href="admin-inventory.html">View Inventory</a> |
+            <a href="#" onclick="alert('Logged out.')">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h2>➕ Add New Console Listing</h2>
+        
+        <form id="addItemForm" action="/api/items" method="POST">
+            
+            <div class="form-group">
+                <label for="title">Product Title (e.g., PS5 Disc Edition Used)</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (in Currency)</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="condition">Condition (e.g., Very Good, Fair)</label>
+                <select id="condition" name="condition" required>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Detailed Description</label>
+                <textarea id="description" name="description" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrls">Image URLs (One URL per line)</label>
+                <textarea id="imageUrls" name="imageUrls" rows="4" placeholder="URL of main image&#10;URL of side image&#10;..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Save New Listing</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Admin Interface &copy; 2025</p>
+    </footer>
+    
+    <script src="admin-script.js"></script> 
+</body>
+</html>
